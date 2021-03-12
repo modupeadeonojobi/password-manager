@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bulma/css/bulma.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
