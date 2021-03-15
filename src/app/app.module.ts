@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { GeneratePasswordComponent } from './generate-password/generate-password.component';
 import { ViewPasswordComponent } from './view-password/view-password.component';
+// import { NgxPaginationModule } from 'ngx-pagination';
+
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,8 @@ import { ViewPasswordComponent } from './view-password/view-password.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,12 +14,16 @@ export class GeneratePasswordComponent implements OnInit {
   includeLetters: boolean = false;
   includeSymbols: boolean = false;
   name: string;
-  allData: any = [];
+  newData: any[] = [];
+  oldData: any = [];
+  hideButton: boolean = true;
+  success: string;
 
+  constructor(private router: Router) {
+    this.oldData = JSON.parse(localStorage.getItem('results')) || [];
+  }
 
-  constructor(private router: Router) {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 
   getName(value): any {
@@ -72,15 +76,27 @@ export class GeneratePasswordComponent implements OnInit {
     const value = {
       name: this.name, password: this.password, length: this.length
     };
-    
-    
-    if (this.password) {
-      this.allData.push(value);
-      localStorage.setItem('results', JSON.stringify(this.allData));
-      console.log(this.allData);
+    if (this.oldData.length == 0) {
+      localStorage.setItem('results', JSON.stringify(value));
     }
+
+    if (this.password) {
+      this.oldData.push(value);
+      localStorage.setItem('results', JSON.stringify(this.oldData));
+    }
+    this.hideButton = false;
+    this.success = 'Saved!';
+
+    setTimeout(function () {
+      location.reload()
+      
+    }, 1000);
+
+
+
   }
-    
+  
+
 
   view(): any {
     this.router.navigate(['/view-password']);
