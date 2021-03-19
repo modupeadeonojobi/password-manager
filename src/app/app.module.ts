@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { GeneratePasswordComponent } from './generate-password/generate-password.component';
 import { ViewPasswordComponent } from './view-password/view-password.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -22,7 +23,6 @@ import { ViewPasswordComponent } from './view-password/view-password.component';
     AppRoutingModule,
     // NgxPaginationModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }], bootstrap: [AppComponent]
 })
 export class AppModule { }
