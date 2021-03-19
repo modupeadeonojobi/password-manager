@@ -86,6 +86,10 @@ export class GeneratePasswordComponent implements OnInit {
     }
     this.hideButton = false;
     this.success = 'Saved!';
+
+    // setTimeout(function () {
+    location.reload()
+    // }, 1000);
   }
 
 
